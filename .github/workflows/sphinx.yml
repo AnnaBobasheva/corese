@@ -11,7 +11,7 @@ jobs:
     - name: Checkout dev_documentation branch
       uses: actions/checkout@v4
       with:
-        ref: dev_documentation
+        ref: doc_development
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
     - name: Upload artifacts
