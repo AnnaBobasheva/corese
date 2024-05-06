@@ -22,7 +22,7 @@ jobs:
     - name: Build Sphinx Docs
       uses: ammaraskar/sphinx-action@master
       with:
-        pre-build-command: "apt-get update -y && apt-get install doxygen -y"
+        pre-build-command: "apt-get install doxygen"
         build-command: "make html"
         docs-folder: "docs/"
 
