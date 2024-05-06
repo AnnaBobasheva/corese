@@ -12,8 +12,17 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: doc_development
-    - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
+    
+    - name: Verify Doxygen Installation
+      run: which doxygen
+
+    - name: Build Sphinx Docs
+      uses: ammaraskar/sphinx-action@v0.3
+      with:
+        pre-build-command: "pip install sphinx exhale"
+        build-command: "make html"
+        docs-folder: "docs/"    
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
