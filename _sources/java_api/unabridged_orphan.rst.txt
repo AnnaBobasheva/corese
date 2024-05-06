@@ -1,0 +1,72 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src_main.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src_main_java.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src_main_java_fr.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src_main_java_fr_inria.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src_main_java_fr_inria_corese.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_corese-core.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file_corese-core_src_main_java_fr_inria_corese_core_Corese.java.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_corese-core_src_main_java_fr_inria_corese_core_Graph.java.rst
+
+Pages
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   page_deprecated.rst

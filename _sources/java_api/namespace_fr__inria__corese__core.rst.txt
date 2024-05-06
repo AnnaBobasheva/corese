@@ -1,0 +1,28 @@
+
+.. _namespace_fr__inria__corese__core:
+
+Namespace fr::inria::corese::core
+=================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classfr_1_1inria_1_1corese_1_1core_1_1Corese`
+
+- :ref:`exhale_class_classfr_1_1inria_1_1corese_1_1core_1_1Graph`
+
+- :ref:`exhale_class_classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1CompareNode`
+
+- :ref:`exhale_class_classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1GTable`
+
+- :ref:`exhale_class_classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1TreeNode`
