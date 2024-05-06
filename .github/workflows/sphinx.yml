@@ -8,6 +8,9 @@ jobs:
     permissions:
       contents: write
     steps:
+    - name: Check Python version
+      run: python --version
+      
     - name: Checkout doc_development branch
       uses: actions/checkout@v4
       with:
