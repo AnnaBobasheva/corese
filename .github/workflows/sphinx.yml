@@ -20,7 +20,7 @@ jobs:
       run: which doxygen
 
     - name: Build Sphinx Docs
-      uses: ammaraskar/sphinx-action@v0.3
+      uses: ammaraskar/sphinx-action@master
       with:
         pre-build-command: "pip install sphinx exhale"
         build-command: "make html"
