@@ -14,7 +14,7 @@ jobs:
       with:
         ref: doc_development
     - name: Install Doxygen
-      run: sudo apt-get install doxygen
+      uses: ssciwr/doxygen-install@v1.4.0
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
     - name: Upload artifacts
