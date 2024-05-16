@@ -18,11 +18,11 @@ help:
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile user_guide.md
-    @$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 user_guide.md:
-    cd $(SOURCEDIR); \
-    if [ ! -e "user_guide.md" ]; then \
-        ln -sf "../README.md" "user_guide.md"; \
-    fi; \
-    cd -
+	cd $(SOURCEDIR); \
+	if [ ! -e "user_guide.md" ]; then \
+		ln -sf "../README.md" "user_guide.md"; \
+	fi; \
+	cd -
