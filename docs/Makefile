@@ -14,17 +14,15 @@ BUILDDIR      = build
 
 pushd $(SOURCEDIR)
 
-	if not exist "user_guide" ( 
-		ln -sf  "..\README.md" "user_guide.md" 
-	) 
-	
-	dirs=("getting started" "rdf4j" "corese-python" "federation" "storage" "advanced")
-
-	for dir in "${dirs[@]}"; do
-		if [ ! -d "$dir" ]; then
-			ln -sf "../$dir" "$dir"
-		fi
-	done
+if not exist "user_guide" ( \
+	ln -sf  "..\README.md" "user_guide.md" \
+) \
+dirs=("getting started" "rdf4j" "corese-python" "federation" "storage" "advanced") \
+for dir in "${dirs[@]}"; do \
+	if [ ! -d "$dir" ]; then \
+		ln -sf "../$dir" "$dir" \
+	fi \
+done
 
 popd
 
