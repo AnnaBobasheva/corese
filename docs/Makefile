@@ -13,14 +13,6 @@ BUILDDIR      = build
 #TODO: if this code stays then make the dir variable a list of all subfodirs of /doc except for /doc/source
 
 cd $(SOURCEDIR); \
-if [ ! -e "user_guide" ]; then \
-	ln -sf "../README.md" "user_guide.md"; \
-fi; \
-for dir in "getting started" "rdf4j" "corese-python" "federation" "storage" "advanced"; do \
-	if [ ! -d "$$dir" ]; then \
-		ln -sf "../$$dir" "$$dir"; \
-	fi; \
-done; \
 cd -
 
 # Put it first so that "make" without argument is like "make help".
