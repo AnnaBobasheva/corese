@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Directory corese &#8212; CORESE</title>
+    <title>Corese-server with Python &#8212; CORESE</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'java_api/dir__github_workspace_corese-core_src_main_java_fr_inria_corese';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'corese-python/Corese-server with Python';</script>
     <link rel="icon" href="../_static/corese.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -162,7 +162,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="library_root.html">
+                      <a class="nav-link nav-internal" href="../java_api/library_root.html">
                         API
                       </a>
                     </li>
@@ -290,7 +290,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="library_root.html">
+                      <a class="nav-link nav-internal" href="../java_api/library_root.html">
                         API
                       </a>
                     </li>
@@ -375,7 +375,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Directory corese</li>
+    <li class="breadcrumb-item active" aria-current="page">Corese-serve...</li>
   </ul>
 </nav>
 </div>
@@ -392,15 +392,106 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="directory-corese">
-<span id="dir-github-workspace-corese-core-src-main-java-fr-inria-corese"></span><h1>Directory corese<a class="headerlink" href="#directory-corese" title="Permalink to this heading">#</a></h1>
-<p>↰ <a class="reference internal" href="dir__github_workspace_corese-core_src_main_java_fr_inria.html#dir-github-workspace-corese-core-src-main-java-fr-inria"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">/github/workspace/corese-core/src/main/java/fr/inria</span></code>)</p>
-<p><em>Directory path:</em> <code class="docutils literal notranslate"><span class="pre">/github/workspace/corese-core/src/main/java/fr/inria/corese</span></code></p>
-<section id="subdirectories">
-<h2>Subdirectories<a class="headerlink" href="#subdirectories" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core.html#dir-github-workspace-corese-core-src-main-java-fr-inria-corese-core"><span class="std std-ref">Directory core</span></a></p></li>
-</ul>
+  <section id="corese-server-with-python">
+<h1>Corese-server with Python<a class="headerlink" href="#corese-server-with-python" title="Permalink to this heading">#</a></h1>
+<p>This document shows how to configure and query a Corese server from python.</p>
+<section id="configure-a-corese-server">
+<h2>1. Configure a Corese-Server<a class="headerlink" href="#configure-a-corese-server" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Download last version of <a class="reference external" href="https://project.inria.fr/corese/jar/">Corese-Server</a>.</p></li>
+<li><p>Start the Corese-Server with command: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">corese-server.jar</span> <span class="pre">-l</span> <span class="pre">&quot;./file_1.ttl&quot;</span></code></p></li>
+</ol>
+<blockquote>
+<div><p>It’s also possible to load data from several files or URL.</p>
+<p>E.g: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">corese-server.jav</span> <span class="pre">-l</span> <span class="pre">&quot;./file_1.ttl&quot;</span> <span class="pre">-l</span> <span class="pre">&quot;file_2.ttl&quot;</span> <span class="pre">-l</span> <span class="pre">&quot;http://file_3.ttl&quot;</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="query-a-corese-server-from-python">
+<h2>2. Query a Corese-server from python<a class="headerlink" href="#query-a-corese-server-from-python" title="Permalink to this heading">#</a></h2>
+<section id="install-dependencies">
+<h3>2.1. Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>SPARQLWrapper<span class="w"> </span>pandas
+</pre></div>
+</div>
+</section>
+<section id="execute-a-update-query">
+<h3>2.2. Execute a update query<a class="headerlink" href="#execute-a-update-query" title="Permalink to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">JSON</span><span class="p">,</span> <span class="n">POST</span><span class="p">,</span> <span class="n">POSTDIRECTLY</span><span class="p">,</span> <span class="n">SPARQLWrapper</span>
+
+
+<span class="k">def</span> <span class="nf">sparql_service_update</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">update_query</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to update (DELETE DATA, INSERT DATA, DELETE/INSERT) data.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+    <span class="n">sparql</span><span class="o">.</span><span class="n">setMethod</span><span class="p">(</span><span class="n">POST</span><span class="p">)</span>
+    <span class="n">sparql</span><span class="o">.</span><span class="n">setRequestMethod</span><span class="p">(</span><span class="n">POSTDIRECTLY</span><span class="p">)</span>
+    <span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">update_query</span><span class="p">)</span>
+    <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+
+    <span class="c1"># SPARQLWrapper is going to throw an exception if result.response.status != 200:</span>
+
+    <span class="k">return</span> <span class="s1">&#39;Done&#39;</span>
+
+
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;</span>
+
+<span class="s1">INSERT DATA </span>
+<span class="s1">{ &lt;http://example/book1&gt;  dc:title  &quot;Oliver Twist&quot;</span>
+<span class="s1">  &lt;http://example/book2&gt;  dc:title  &quot;David Copperfield&quot;</span>
+<span class="s1">}</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">wds_Corese</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8080/sparql&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">sparql_service_update</span><span class="p">(</span><span class="n">wds_Corese</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Results :</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>Done
+</pre></div>
+</div>
+</section>
+<section id="execute-a-select-query">
+<h3>2.3. Execute a select query<a class="headerlink" href="#execute-a-select-query" title="Permalink to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">get_sparql_dataframe</span>
+
+
+<span class="k">def</span> <span class="nf">sparql_service_to_dataframe</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Query the given endpoint with the given query and return the result as a pandas DataFrame.</span>
+<span class="sd">    :param endpoint: The SPARQL endpoint to query</span>
+<span class="sd">    :param query: The SPARQL query</span>
+<span class="sd">    :return: A pandas DataFrame containing the query result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_sparql_dataframe</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">select *</span>
+<span class="s1">{</span>
+<span class="s1">  ?s ?p ?o</span>
+<span class="s1">}</span>
+<span class="s1">limit 10</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">wds_Corese</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8080/sparql&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">sparql_service_to_dataframe</span><span class="p">(</span><span class="n">wds_Corese</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Results :</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>                      s                                      p                  o
+0  http://example/book1  http://purl.org/dc/elements/1.1/title       Oliver Twist
+1  http://example/book2  http://purl.org/dc/elements/1.1/title  David Copperfield
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -430,14 +521,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subdirectories">Subdirectories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-a-corese-server">1. Configure a Corese-Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#query-a-corese-server-from-python">2. Query a Corese-server from python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">2.1. Install dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-a-update-query">2.2. Execute a update query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-a-select-query">2.3. Execute a select query</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/java_api/dir__github_workspace_corese-core_src_main_java_fr_inria_corese.rst.txt">
+    <a href="../_sources/corese-python/Corese-server with Python.md.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
