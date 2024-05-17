@@ -97,8 +97,8 @@ CORESE documentation
 .. toctree::
    :hidden:
 
-   Installation <install>
-   User Guide <user_guide>
+   Installation <install.md>
+   User Guide <user_guide.md>
    API <java_api/library_root>
    Demo <https://corese.inria.fr/>
 
