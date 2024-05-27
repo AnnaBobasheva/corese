@@ -12,5 +12,15 @@ Directory core
 
 *Directory path:* ``/github/workspace/corese-core/src/main/java/fr/inria/corese/core``
 
+Subdirectories
+--------------
+
+- :ref:`dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core_api`
+- :ref:`dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core_load`
+- :ref:`dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core_print`
+- :ref:`dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core_query`
+- :ref:`dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core_shacl`
+- :ref:`dir__github_workspace_corese-core_src_main_java_fr_inria_corese_core_transform`
+
 
 

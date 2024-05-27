@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Program Listing for File Corese.java &#8212; CORESE</title>
+    <title>File Transformer.java &#8212; CORESE</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'java_api/program_listing_file_corese-core_src_main_java_fr_inria_corese_core_Corese.java';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'java_api/file_corese-core_src_main_java_fr_inria_corese_core_transform_Transformer.java';</script>
     <link rel="icon" href="../_static/corese.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -165,13 +165,6 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="library_root.html">
-                        API
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
                       <a class="nav-link nav-external" href="https://corese.inria.fr/">
                         Demo
                       </a>
@@ -259,7 +252,7 @@ document.write(`
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -288,13 +281,6 @@ document.write(`
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user_guide.html">
                         User Guide
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="library_root.html">
-                        API
                       </a>
                     </li>
                 
@@ -346,18 +332,6 @@ document.write(`
     
   </div>
   
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Program Listing for File Corese.java</a></li>
-</ul>
-</div>
-</nav></div>
-    </div>
-  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -390,7 +364,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Program...</li>
+    <li class="breadcrumb-item active" aria-current="page">File...</li>
   </ul>
 </nav>
 </div>
@@ -407,23 +381,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="program-listing-for-file-corese-java">
-<span id="program-listing-file-corese-core-src-main-java-fr-inria-corese-core-corese-java"></span><h1>Program Listing for File Corese.java<a class="headerlink" href="#program-listing-for-file-corese-java" title="Permalink to this heading">#</a></h1>
-<p>↰ <a class="reference internal" href="file_corese-core_src_main_java_fr_inria_corese_core_Corese.java.html#file-corese-core-src-main-java-fr-inria-corese-core-corese-java"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">corese-core/src/main/java/fr/inria/corese/core/Corese.java</span></code>)</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">fr.inria.corese.core</span><span class="p">;</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Date</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.LoggerFactory</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.Logger</span><span class="p">;</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Corese</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">Corese</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Corese, Inria: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+  <section id="file-transformer-java">
+<span id="file-corese-core-src-main-java-fr-inria-corese-core-transform-transformer-java"></span><h1>File Transformer.java<a class="headerlink" href="#file-transformer-java" title="Permalink to this heading">#</a></h1>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-corese-core-src-main-java-fr-inria-corese-core-transform-transformer-java" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">corese-core/src/main/java/fr/inria/corese/core/transform/Transformer.java</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#namespaces" id="id2">Namespaces</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+</ul>
+</nav>
+<section id="definition-corese-core-src-main-java-fr-inria-corese-core-transform-transformer-java">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">corese-core/src/main/java/fr/inria/corese/core/transform/Transformer.java</span></code>)<a class="headerlink" href="#definition-corese-core-src-main-java-fr-inria-corese-core-transform-transformer-java" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="namespace_fr__inria__corese__core__transform.html#namespace-fr-inria-corese-core-transform"><span class="std std-ref">Namespace fr::inria::corese::core::transform</span></a></p></li>
+</ul>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="classfr_1_1inria_1_1corese_1_1core_1_1transform_1_1Transformer.html#exhale-class-classfr-1-1inria-1-1corese-1-1core-1-1transform-1-1transformer"><span class="std std-ref">Class Transformer</span></a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -447,8 +429,21 @@ document.write(`
 
   <div class="sidebar-secondary-item">
 
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-corese-core-src-main-java-fr-inria-corese-core-transform-transformer-java">Definition (<code class="docutils literal notranslate"><span class="pre">corese-core/src/main/java/fr/inria/corese/core/transform/Transformer.java</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
   <div class="tocsection sourcelink">
-    <a href="../_sources/java_api/program_listing_file_corese-core_src_main_java_fr_inria_corese_core_Corese.java.rst.txt">
+    <a href="../_sources/java_api/file_corese-core_src_main_java_fr_inria_corese_core_transform_Transformer.java.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

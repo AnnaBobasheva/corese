@@ -13,6 +13,23 @@ Namespace fr::inria::corese::core
 
 
 
+Namespaces
+----------
+
+
+- :ref:`namespace_fr__inria__corese__core__api`
+
+- :ref:`namespace_fr__inria__corese__core__load`
+
+- :ref:`namespace_fr__inria__corese__core__print`
+
+- :ref:`namespace_fr__inria__corese__core__query`
+
+- :ref:`namespace_fr__inria__corese__core__shacl`
+
+- :ref:`namespace_fr__inria__corese__core__transform`
+
+
 Classes
 -------
 

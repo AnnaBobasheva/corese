@@ -12,11 +12,6 @@ Definition (``corese-core/src/main/java/fr/inria/corese/core/Corese.java``)
 ---------------------------------------------------------------------------
 
 
-.. toctree::
-   :maxdepth: 1
-
-   program_listing_file_corese-core_src_main_java_fr_inria_corese_core_Corese.java.rst
-
 
 
 
