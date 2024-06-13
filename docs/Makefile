@@ -42,7 +42,7 @@ symbolic_links:
 	\
 	echo "Creating a symbolic link to docker-build"; \
 	if [ ! -d "docker" ]; then \
-		ln -sf "../../corese-server/docker-build" "docker"; \
+		ln -sfv "/corese-server/docker-build" "docker"; \
 		echo "--- docker created"; \
 	else echo "--- docker already exists"; \
 	fi; \
