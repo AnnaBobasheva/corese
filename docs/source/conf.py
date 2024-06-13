@@ -119,7 +119,7 @@ repo_root = os.path.dirname(  # {repo_root}
             os.path.dirname(  # {repo_root}/docs
             this_file_dir     # {repo_root}/docs/source
         )
-    ) # TODOD: delete in a final version if not used
+    ) # TODO: delete in a final version if not used
 
 # Setup the breathe extension 
 # https://breathe.readthedocs.io/en/latest/
@@ -134,7 +134,7 @@ exhale_args = {
     # These arguments are required
     "containmentFolder":     "./java_api",
     "rootFileName":          "library_root.rst", # EXCLUDE - if we want to change the sections
-    "doxygenStripFromPath":  ".. ", #repo_root, # "..",
+    "doxygenStripFromPath":  repo_root, # "..",
 
     # Heavily encouraged optional argument (see docs)
     "rootFileTitle":         "Java API",
