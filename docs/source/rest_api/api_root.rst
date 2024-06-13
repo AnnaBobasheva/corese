@@ -76,4 +76,3 @@ Endpoints
   sparql_d3
   spin_tospin
   rdf_graph_store
-  ../docker/README.md
