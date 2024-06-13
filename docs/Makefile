@@ -39,4 +39,11 @@ symbolic_links:
 	else echo "--- $$dir already exists"; \
 	fi; \
 	done; \
+	\
+	echo "Creating symbolic link to docker-build"; \
+	if [ ! -d "docker" ]; then \
+		ln -sf "../../docker-build" "docker"; \
+		echo "--- docker created"; \
+	else echo "--- docker already exists"; \
+	fi; \
 	cd -
