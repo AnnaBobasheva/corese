@@ -4,6 +4,60 @@
 Full API
 ========
 
+Namespaces
+**********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core__api.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core__load.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core__print.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core__query.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core__shacl.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_fr__inria__corese__core__transform.rst
+
 Directories
 ***********
 
@@ -81,11 +135,6 @@ Directories
 Files
 *****
 
-
-.. toctree::
-   :maxdepth: 5
-
-   file_corese-core_src_main_java_fr_inria_corese_core_Corese.java.rst
 
 .. toctree::
    :maxdepth: 5

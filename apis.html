@@ -51,7 +51,7 @@
     <link rel="icon" href="_static/corese.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="REST API Reference" href="rest_api/reference.html" />
+    <link rel="next" title="REST API Reference" href="rest_api/api_root.html" />
     <link rel="prev" title="Corese documentation" href="user_guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -354,19 +354,16 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="rest_api/reference.html">REST API</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="java_api/library_root.html">Java API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr.html">Namespace fr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria.html">Namespace fr::inria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese.html">Namespace fr::inria::corese</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core.html">Namespace fr::inria::corese::core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core__api.html">Namespace fr::inria::corese::core::api</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core__load.html">Namespace fr::inria::corese::core::load</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core__print.html">Namespace fr::inria::corese::core::print</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core__query.html">Namespace fr::inria::corese::core::query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core__shacl.html">Namespace fr::inria::corese::core::shacl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/namespace_fr__inria__corese__core__transform.html">Namespace fr::inria::corese::core::transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java_api/classfr_1_1inria_1_1corese_1_1core_1_1Corese.html">Class Corese</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rest_api/api_root.html">REST API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="rest_api/sparql.html">/sparql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api/sparql_load.html">/sparql/load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api/sparql_reset.html">/sparql/reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api/sparql_d3.html">/sparql/d3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api/spin_tospin.html">/spin/tospin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api/rdf_graph_store.html">/rdf-graph-store</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="java_api/library_root.html">Java API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph.html">Class Graph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1CompareNode.html">Class Graph::CompareNode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1GTable.html">Class Graph::GTable</a></li>
@@ -441,7 +438,7 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-rounded-3 docutils">
 <div class="sd-card-header docutils">
-<p class="sd-card-text">Corese command line interface</p>
+<p class="sd-card-text">Corese command-line interface</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Corese-Command is a command-line interface (CLI) for the Corese Semantic Web Factory. It facilitates:</p>
@@ -451,6 +448,9 @@ document.write(`
 <li><p class="sd-card-text">validating RDF data against SHACL shapes</p></li>
 </ul>
 <p class="sd-card-text">and more…</p>
+<blockquote>
+<div><p class="sd-card-text">In writing ….</p>
+</div></blockquote>
 </div>
 </div>
 </div>
@@ -463,16 +463,12 @@ document.write(`
 <p class="sd-card-text">The Corese server provides several functionalities available through a REST API:</p>
 <ul class="simple">
 <li><p class="sd-card-text">SPARQL endpoint</p></li>
-<li><p class="sd-card-text">STTL endpoint (can’t find it)</p></li>
-<li><p class="sd-card-text">SPIN endpoint</p></li>
-<li><p class="sd-card-text">DQP (distributed query processor) endpoint</p></li>
-<li><p class="sd-card-text">LDP (Linked Data Platform) endpoint</p></li>
+<li><p class="sd-card-text">SPARQL to SPIN conversion endpoint</p></li>
+<li><p class="sd-card-text">Graph Store HTTP Protocol endpoint</p></li>
 </ul>
 <p class="sd-card-text">and more…</p>
-<p class="sd-card-text">[Source](<a class="github reference external" href="https://github.com/Wimmics/corese/wiki/CORESE-server#what-is-the-corese-server">Wimmics/corese</a>)
-[Doc](<a class="reference external" href="https://files.inria.fr/corese/doc/server.html">https://files.inria.fr/corese/doc/server.html</a>)</p>
 </div>
-<a class="sd-stretched-link reference external" href="rest_api/reference.html"></a></div>
+<a class="sd-stretched-link reference external" href="rest_api/api_root.html"></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover sd-rounded-3 docutils">
@@ -492,7 +488,6 @@ document.write(`
 <li><p class="sd-card-text">execute LDScript functionalities</p></li>
 </ul>
 <p class="sd-card-text">and more…</p>
-<p class="sd-card-text">[Source](<a class="github reference external" href="https://github.com/Wimmics/corese/blob/master/docs/getting%20started/Getting%20Started%20With%20Corese-library.md#22-load-graph-from-file">Wimmics/corese</a>)</p>
 </div>
 <a class="sd-stretched-link reference external" href="java_api/library_root.html"></a></div>
 </div>
@@ -540,7 +535,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="rest_api/reference.html"
+       href="rest_api/api_root.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>REST API Reference &#8212; CORESE</title>
+    <title>/sparql/d3 &#8212; CORESE</title>
   
   
   
@@ -47,12 +47,12 @@
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'rest_api/reference';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rest_api/sparql_d3';</script>
     <link rel="icon" href="../_static/corese.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Java API" href="../java_api/library_root.html" />
-    <link rel="prev" title="CORESE APIs" href="../apis.html" />
+    <link rel="next" title="/spin/tospin" href="spin_tospin.html" />
+    <link rel="prev" title="/sparql/reset" href="sparql_reset.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -354,19 +354,16 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">REST API</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../java_api/library_root.html">Java API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr.html">Namespace fr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria.html">Namespace fr::inria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese.html">Namespace fr::inria::corese</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core.html">Namespace fr::inria::corese::core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core__api.html">Namespace fr::inria::corese::core::api</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core__load.html">Namespace fr::inria::corese::core::load</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core__print.html">Namespace fr::inria::corese::core::print</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core__query.html">Namespace fr::inria::corese::core::query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core__shacl.html">Namespace fr::inria::corese::core::shacl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/namespace_fr__inria__corese__core__transform.html">Namespace fr::inria::corese::core::transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Corese.html">Class Corese</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="api_root.html">REST API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sparql.html">/sparql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparql_load.html">/sparql/load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparql_reset.html">/sparql/reset</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">/sparql/d3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spin_tospin.html">/spin/tospin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf_graph_store.html">/rdf-graph-store</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../java_api/library_root.html">Java API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph.html">Class Graph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1CompareNode.html">Class Graph::CompareNode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1GTable.html">Class Graph::GTable</a></li>
@@ -418,7 +415,10 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../apis.html" class="nav-link">CORESE APIs</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">REST API Reference</li>
+    
+    <li class="breadcrumb-item"><a href="api_root.html" class="nav-link">REST API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">/sparql/d3</li>
   </ul>
 </nav>
 </div>
@@ -435,130 +435,77 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="id1">
-<h1>REST API Reference<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>This document provides a reference guide for the REST API of CORESE server. It outlines the available endpoints, their request and response formats, and any additional details that may be relevant.</p>
-<p>For user guide on how to setup a CORESE server, please refer to the <a class="reference external" href="/docs/build/html/getting%20started/Getting%20Started%20With%20Corese-server.html">user-guide</a>.</p>
-</section>
-<section id="base-url">
-<h2>Base URL<a class="headerlink" href="#base-url" title="Permalink to this heading">#</a></h2>
-<p>The base URL for all API endpoints could be:</p>
-<ul class="simple">
-<li><p>localhost: <cite>http://localhost:8080</cite></p></li>
-<li><p>docker: <cite>http://localhost:8080</cite></p></li>
-<li><p>external server: for example <cite>https://corese.inria.fr</cite></p></li>
-</ul>
-</section>
-<section id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading">#</a></h2>
-<p>No authentication is required to access the API (??) .</p>
-</section>
-<section id="endpoints">
-<h2>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this heading">#</a></h2>
-<section id="sparql">
-<h3>/sparql<a class="headerlink" href="#sparql" title="Permalink to this heading">#</a></h3>
-<p>This endpoint allows you to query the CORESE server using SPARQL queries. The supported query types are SELECT, CONSTRUCT, ASK, or update (INSERT/DELETE).</p>
-<p><strong>URL:</strong> <cite>{base URL}/sparql</cite></p>
+  <section id="sparql-d3">
+<span id="endpoint-sparql-d3"></span><h1>/sparql/d3<a class="headerlink" href="#sparql-d3" title="Permalink to this heading">#</a></h1>
+<p>This endpoint retrieves the JSON representation of triples for D3 graph visualization of a SPARQL query results.</p>
+<p><strong>URL:</strong> <cite>{base URL}/sparql/d3</cite></p>
 <p><strong>Method:</strong> GET</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><p><cite>query</cite>: Required SELECT or ASK query string.</p></li>
-<li><p><cite>access</cite>: Optional key that may give access to the protected features. (in use??)</p></li>
-<li><p><cite>default-graph-uri</cite>: Optional default graph URI.</p></li>
-<li><p><cite>named-graph-uri</cite>: Optional named graph URI.</p></li>
-<li><p><cite>format</cite>: Optional output format json|xml (case sensitive) to specify return format when there is no http header content. Default: xml</p></li>
-<li><p><cite>transform</cite>: Optional list of transformation such as <em>st:map</em>.</p></li>
-<li><p><cite>param</cite>: Optional parameter in format: param=key~val;val.</p></li>
-<li><p><cite>mode</cite>: Optional list like mode=debug;link;log.</p></li>
-<li><p><cite>uri</cite>: Otional list of URIs. Use case: URL of shacl shape.</p>
-<blockquote>
-<div><p>TODO: Add defaults to the optional parameters.</p>
-</div></blockquote>
+<p><strong>Headers:</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Accept:</cite></dt><dd><ul>
+<li><p><cite>application/sparql-results+json</cite></p></li>
+</ul>
+</dd>
+</dl>
 </li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><cite>query</cite>: Required query string.</p></li>
+<li><p><cite>default-graph-uri</cite>: Optional list of default graph URIs. Default: none.</p></li>
+<li><p><cite>named-graph-uri</cite>: Optional list of named graph URIs. Default: none.</p></li>
+<li><p><cite>access</cite>: Optional access key that may give access to the protected features on the remote servers. Default: none.</p></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><p>Response status code 200 if the query operation is successful.</p></li>
+<li><p>Response status code 500 and the response body containing an error message if the query contains an error.</p></li>
 </ul>
 <p><strong>Request Example:</strong></p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
 HTTP</label><div class="sd-tab-content docutils">
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span>GET /sparql?query=&quot;SELECT * WHERE {?s ?p ?o} LIMIT 5&quot;&amp;format=JSON
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>POST /sparql/d3?query=PREFIX%20%20humans%3A%20%3Chttp%3A%2F%2Fwww.inria.fr%2F2015%2Fhumans%23%3E%20%20%20%20%20%20%20SELECT%20%2A%20WHERE%20%7B%20%3Fchild%20humans%3AhasMother%20%3Fmother.%20%7D&#39;  HTTP/1.1
 Host: https://corese.inria.fr
-Headers: Content-Type: application/json
+Accept: application/sparql-results+json
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-1">
 curl</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="s2">&quot;query=SELECT * WHERE {?s ?p ?o} LIMIT 2&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">                                    </span>--data-urlencode<span class="w"> </span><span class="s2">&quot;format=json&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Response Example:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;head&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;vars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;p&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="p">]</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;bindings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;s&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.inria.fr/2015/humans#Man&quot;</span><span class="p">},</span>
-<span class="w">                </span><span class="nt">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://ns.inria.fr/sparql-template/icon&quot;</span><span class="p">},</span>
-<span class="w">                </span><span class="nt">&quot;o&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://corese.inria.fr:34660/img/male.png&quot;</span><span class="p">}</span>
-<span class="w">                </span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;s&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.inria.fr/2015/humans#Person&quot;</span><span class="p">},</span>
-<span class="w">                </span><span class="nt">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://ns.inria.fr/sparql-template/icon&quot;</span><span class="p">},</span>
-<span class="w">                </span><span class="nt">&quot;o&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://corese.inria.fr:34660/img/person.png&quot;</span><span class="p">}</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">                    </span><span class="p">]</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ol class="arabic" start="2">
-<li><dl>
-<dt>Endpoint 2</dt><dd><p>Description of endpoint 2.</p>
-<p><strong>URL:</strong> <cite>/api/endpoint2</cite></p>
-<p><strong>Method:</strong> POST</p>
-<p><strong>Parameters:</strong></p>
-<ul class="simple">
-<li><p><cite>param1</cite>: Description of param1.</p></li>
-<li><p><cite>param2</cite>: Description of param2.</p></li>
-</ul>
-<p><strong>Request Example:</strong></p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span>POST /api/endpoint2
-Host: api.example.com
-Authorization: Bearer YOUR_API_KEY
-Content-Type: application/json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># QUERY=&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;</span>
+<span class="c1">#        SELECT * WHERE { ?child humans:hasMother ?mother. }&#39;</span>
 
-{
-     &quot;param1&quot;: &quot;value1&quot;,
-     &quot;param2&quot;: &quot;value2&quot;
-}
+curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="se">\</span>
+--url<span class="w"> </span><span class="s1">&#39;https://corese.inria.fr/sparql/d3?query=PREFIX%20%20humans%3A%20%3Chttp%3A%2F%2Fwww.inria.fr%2F2015%2Fhumans%23%3E%20%20%20%20%20%20%20SELECT%20%2A%20WHERE%20%7B%20%3Fchild%20humans%3AhasMother%20%3Fmother.%20%7D&#39;</span><span class="w"> </span><span class="se">\</span>
+--header<span class="w"> </span><span class="s1">&#39;Accept: application/sparql-results+json&#39;</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p><strong>Response Example:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;key1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;key2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;mappings&quot;</span><span class="w"> </span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;head&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;vars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;child&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mother&quot;</span><span class="p">]</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;bindings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;child&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.inria.fr/2015/humans-instances#Lucas&quot;</span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;mother&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.inria.fr/2015/humans-instances#Catherine&quot;</span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="p">,</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;child&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.inria.fr/2015/humans-instances#Catherine&quot;</span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;mother&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.inria.fr/2015/humans-instances#Laura&quot;</span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="nt">&quot;d3&quot;</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="p">}</span>
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-</ol>
-</section>
-</section>
-<section id="additional-information">
-<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
-<p>Include any additional information or guidelines for using the API here.</p>
-</section>
 </section>
 
 
@@ -572,20 +519,20 @@ Content-Type: application/json
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../apis.html"
+       href="sparql_reset.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">CORESE APIs</p>
+        <p class="prev-next-title">/sparql/reset</p>
       </div>
     </a>
     <a class="right-next"
-       href="../java_api/library_root.html"
+       href="spin_tospin.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Java API</p>
+        <p class="prev-next-title">/spin/tospin</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -600,26 +547,8 @@ Content-Type: application/json
 
   <div class="sidebar-secondary-item">
 
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-url">Base URL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoints">Endpoints</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sparql">/sparql</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-
   <div class="tocsection sourcelink">
-    <a href="../_sources/rest_api/reference.rst.txt">
+    <a href="../_sources/rest_api/sparql_d3.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

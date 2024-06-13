@@ -51,6 +51,8 @@
     <link rel="icon" href="../_static/corese.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="/sparql" href="sparql.html" />
+    <link rel="prev" title="CORESE APIs" href="../apis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,7 +166,7 @@
                     </li>
                 
 
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../apis.html">
                         API Reference
                       </a>
@@ -259,7 +261,7 @@ document.write(`
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -292,7 +294,7 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../apis.html">
                         API Reference
                       </a>
@@ -346,6 +348,38 @@ document.write(`
     
   </div>
   
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">REST API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="sparql.html">/sparql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparql_load.html">/sparql/load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparql_reset.html">/sparql/reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparql_d3.html">/sparql/d3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spin_tospin.html">/spin/tospin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf_graph_store.html">/rdf-graph-store</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../java_api/library_root.html">Java API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph.html">Class Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1CompareNode.html">Class Graph::CompareNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1GTable.html">Class Graph::GTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1Graph_1_1TreeNode.html">Class Graph::TreeNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1load_1_1Load.html">Class Load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1print_1_1ResultFormat.html">Class ResultFormat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1query_1_1QueryProcess.html">Class QueryProcess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1shacl_1_1Shacl.html">Class Shacl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java_api/classfr_1_1inria_1_1corese_1_1core_1_1transform_1_1Transformer.html">Class Transformer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
@@ -378,6 +412,9 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
+    
+    <li class="breadcrumb-item"><a href="../apis.html" class="nav-link">CORESE APIs</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page">REST API Reference</li>
   </ul>
 </nav>
@@ -397,8 +434,8 @@ document.write(`
                   
   <section id="id1">
 <h1>REST API Reference<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<p>This document provides a reference guide for the REST API of CORESE server. It outlines the available endpoints, their request and response formats, and any additional details that may be relevant.</p>
-<p>For user guide on how to setup a CORESE server, please refer to the <a class="reference external" href="/docs/build/html/getting%20started/Getting%20Started%20With%20Corese-server.html">user-guide</a>.</p>
+<p>This document provides a reference guide for the REST API of the Corese server. It outlines the available endpoints, their request and response formats, and any additional details that may be relevant.</p>
+<p>For the User Guide on how to setup a Corese server, please refer to the <a class="reference external" href="/docs/build/html/getting%20started/Getting%20Started%20With%20Corese-server.html">User Guide</a>.</p>
 <section id="base-url">
 <h2>Base URL<a class="headerlink" href="#base-url" title="Permalink to this heading">#</a></h2>
 <p>The base URL for all API endpoints could be:</p>
@@ -417,17 +454,23 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="xref std std-ref">/sparql</span></p></td>
-<td><p>Allows to query the CORESE server using SPARQL queries.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sparql.html#endpoint-sparql"><span class="std std-ref">/sparql</span></a></p></td>
+<td><p>Allows quering the CORESE server using SPARQL queries.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/sparql/load</span></p></td>
-<td><p>Allows to load RDF data to the CORESE server.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sparql_load.html#endpoint-sparql-load"><span class="std std-ref">/sparql/load</span></a></p></td>
+<td><p>Allows loading RDF data to the CORESE server.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/sparql/reset</span></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sparql_reset.html#endpoint-sparql-reset"><span class="std std-ref">/sparql/reset</span></a></p></td>
 <td><p>Allows to define and reset the endpoint.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/sparql/d3</span></p></td>
-<td><p>Allows to define and reset the endpoint.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sparql_d3.html#endpoint-sparql-d3"><span class="std std-ref">/sparql/d3</span></a></p></td>
+<td><p>Allows returning JSON query results to visualize with d3.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="spin_tospin.html#endpoint-spin-tospin"><span class="std std-ref">/spin/tospin</span></a></p></td>
+<td><p>Allows to convert SPARQL query to SPIN RDF.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="rdf_graph_store.html#endpoint-rdf-graph-store"><span class="std std-ref">/rdf-graph-store</span></a></p></td>
+<td><p>Allows updating the RDF graph store.</p></td>
 </tr>
 </tbody>
 </table>
@@ -438,7 +481,7 @@ document.write(`
 <li><p>/sparql/d3 (output for visualization) - document</p></li>
 <li><p>/sparql/draw - the same as /sparql/d3 but with only <em>query</em> parameter</p></li>
 <li><p>/sparql/debug - I think it just a server test for</p></li>
-<li><p>/spin/tosparql - document</p></li>
+<li><p>/spin/tosparql - document (not working properly, ask Fabien if we need it)</p></li>
 <li><p>/spin/tospin - document</p></li>
 <li><p>/ldp (Linked Data Platform) (ask Fabien)</p></li>
 <li><p>ldp/upload (ask Fabien)</p></li>
@@ -452,7 +495,7 @@ document.write(`
 <div><ul class="simple">
 <li><p>/rdf-graph-store - document because it is in the standard</p></li>
 <li><p>/agent</p></li>
-<li><p>/sdk (misnomer, it is actually a sudoku game. could be fun to include)</p></li>
+<li><p>/sdk (misnomer, it is actually a sudoku game)</p></li>
 <li><p>/compute/{name}</p></li>
 <li><p>/service/{serv}</p></li>
 <li><p>/template</p></li>
@@ -475,6 +518,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../apis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CORESE APIs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sparql.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">/sparql</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
