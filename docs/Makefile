@@ -46,5 +46,4 @@ symbolic_links:
 		echo "--- docker created"; \
 	else echo "--- docker already exists"; \
 	fi; \
-	ls -a docker
 	cd -
