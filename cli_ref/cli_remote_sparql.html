@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Command Line Interface Reference &#8212; CORESE</title>
+    <title>remote-sparql &#8212; CORESE</title>
   
   
   
@@ -47,12 +47,12 @@
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'cli_ref/cli_root';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cli_ref/cli_remote_sparql';</script>
     <link rel="icon" href="../_static/corese.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="sparql" href="cli_sparql.html" />
-    <link rel="prev" title="CORESE APIs" href="../apis.html" />
+    <link rel="next" title="REST API Reference" href="../rest_api/api_root.html" />
+    <link rel="prev" title="shacl" href="cli_shacl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -354,11 +354,11 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">CLI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="cli_root.html">CLI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cli_sparql.html">sparql</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_convert.html">convert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_shacl.html">shacl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_remote_sparql.html">remote-sparql</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">remote-sparql</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../rest_api/api_root.html">REST API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -422,7 +422,10 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../apis.html" class="nav-link">CORESE APIs</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Command...</li>
+    
+    <li class="breadcrumb-item"><a href="cli_root.html" class="nav-link">Command Line Interface Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">remote-sparql</li>
   </ul>
 </nav>
 </div>
@@ -439,60 +442,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="command-line-interface-reference">
-<span id="cli-reference"></span><h1>Command Line Interface Reference<a class="headerlink" href="#command-line-interface-reference" title="Permalink to this heading">#</a></h1>
-<p>This document is a reference guide for commands available through the Corese CLI a.k.a. <cite>Corese-Command</cite>. <cite>Corese-Command</cite> provides the built-in Corese engine and a set of commands to interact with it. <cite>Corese-Command</cite> is designed to simplify and streamline tasks related to querying, converting, and validating RDF data,</p>
-<p>For the User Guide on how to set up and get started with <cite>Corese-Command</cite>, please refer to its <a class="reference external" href="../getting%20started/Getting%20Started%20With%20Corese-command.html">User Guide</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The installation instructions for non-Java users are not very clear.</p>
-</div>
-<p>The general syntax for <cite>Corese-Command</cite> is as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span><span class="o">[</span>GLOBAL_OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span><span class="w"> </span><span class="o">[</span>COMMAND_OPTIONS<span class="w"> </span><span class="o">[</span>ARGUMENT<span class="o">]</span><span class="w"> </span>...<span class="o">]</span>
+  <section id="remote-sparql">
+<span id="corese-command-remote-sparql"></span><h1>remote-sparql<a class="headerlink" href="#remote-sparql" title="Permalink to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">remote-sparql</span></code> command allows executing SPARQL queries on a remote server endpoint.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>remote-sparql<span class="w"> </span><span class="o">[</span>-hivw<span class="o">]</span><span class="w"> </span><span class="o">[</span>-q<span class="o">=</span>&lt;queryUrlOrFile&gt;<span class="o">]</span>
+<span class="w">                             </span><span class="o">[</span>-d<span class="o">=</span>&lt;default_graph&gt;...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-n<span class="o">=</span>&lt;named_graph&gt;...<span class="o">]</span>
+<span class="w">                             </span><span class="o">[</span>-m<span class="o">=</span>&lt;requestMethod&gt;<span class="o">]</span><span class="w">  </span><span class="o">[</span>-a<span class="o">=</span>&lt;accept&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>-H<span class="o">=</span>&lt;headers&gt;...<span class="o">]</span>
+<span class="w">                             </span><span class="o">[</span>-r<span class="o">=</span>&lt;maxRedirection&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>-o<span class="o">=</span>&lt;output&gt;<span class="o">]</span>
+<span class="w">                             </span><span class="o">[</span>-c<span class="o">=</span>&lt;configFilePath&gt;<span class="o">]</span>
+<span class="w">                             </span>-e<span class="o">=</span>&lt;endpoint_url&gt;
 </pre></div>
 </div>
-<p><strong>Global Options</strong></p>
-<p>Global options can be used without specifying a command and include:</p>
+<p><strong>Options and arguments:</strong></p>
 <ul class="simple">
-<li><p><cite>-h</cite>, <cite>--help</cite> : Display a list of available commands.</p></li>
-<li><p><cite>-V</cite>, <cite>--version</cite> : Display version information.</p></li>
+<li><p><cite>-e</cite>, <cite>--endpoint</cite> <cite>&lt;string|path|URL&gt;</cite> : Required URL of a SPARQL endpoint.</p></li>
+<li><p><cite>-q</cite>, <cite>--query</cite> <cite>&lt;string|path|URL&gt;</cite> : Required SPARQL query string or path/URL to a .rq file</p></li>
+<li><p><cite>-d</cite>, <cite>--default-graph</cite> <cite>&lt;string&gt;</cite> : Optional default graph URI. Can be specified multiple times. The default graph URIs form the <cite>FROM</cite> clause.</p></li>
+<li><p><cite>-n</cite>, <cite>--named-graph</cite> <cite>&lt;string&gt;</cite> : Optional named graph URI. Can be specified multiple times. The named graph URIs form the <cite>FROM NAMED</cite> clause.</p></li>
+<li><p><cite>-i</cite>, <cite>–ignore-query-validation</cite>: Optional flag to forgo query syntax validation before it is sent to a remote server. Default: false.</p></li>
+<li><p><cite>-m</cite>, <cite>--request-method</cite> <cite>&lt;GET|POST-Encoded|POST-Direct&gt;</cite> : HTTP request method, <cite>POST-Encoded</cite> is equivalent to <code class="docutils literal notranslate"><span class="pre">POST</span></code> request with <code class="docutils literal notranslate"><span class="pre">Content-Type:application/x-www-form-urlencoded</span></code> header. <cite>POST-Direct</cite> is equivalent to <code class="docutils literal notranslate"><span class="pre">POST</span></code> request with <code class="docutils literal notranslate"><span class="pre">Content-Type:application/sparql-query</span></code> header.  Default method: GET.</p></li>
+<li><p><cite>-a</cite>, <cite>-of</cite>, <cite>--accept</cite> <cite>&lt;string&gt;</cite> : <cite>Accept</cite> header value which is also an output format. Supported values are listed <a class="reference internal" href="#corese-command-remote-sparql-output-formats"><span class="std std-ref">below</span></a> Default: <cite>text/csv</cite>.</p></li>
+<li><p><cite>-H</cite>, <cite>--header</cite> <cite>&lt;string&gt;</cite> : Any additional HTTP header to add to the request. Default: none.</p></li>
+<li><p><cite>-r</cite>, <cite>--max-redirection</cite> <cite>&lt;int&gt;</cite> : Maximum number of response redirection. Default: 5.</p></li>
+<li><p><cite>-o</cite>, <cite>--output-data</cite> <cite>&lt;output_file&gt;</cite> : Optional path to save the query results. Default: standard output.</p></li>
+<li><p><cite>-c</cite>,  <cite>--config</cite>, <cite>--init</cite> <cite>&lt;path&gt;</cite> : Optional path to the configuration file. Default: <cite>config.properties</cite> file in the current directory. Is this true??</p></li>
+<li><p><cite>-w</cite>, <cite>--no-owl-import</cite> : Disables the automatic import of referenced ontologies specified in ‘owl:imports’ statements in the <cite>profile.ttl</cite> file. Default: enabled.</p></li>
+<li><p><cite>-v</cite>, <cite>--verbose</cite> : Display verbose output.</p></li>
+<li><p><cite>-h</cite>, <cite>--help</cite>: Display  <cite>sparql</cite> command options.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>-V
-corese-command<span class="w"> </span>--help
+<p><strong>Example:</strong></p>
+<p>In this example we access the demo endpoint of the Corese server and execute a simple SPARQL query to retrieve all the children and their mothers in the dataset.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;</span>
+<span class="s1">       SELECT * WHERE { ?child humans:hasMother ?mother. }&#39;</span>
+
+corese-command<span class="w"> </span>remote-sparql<span class="w"> </span>-e<span class="w"> </span>http://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
+<span class="w">                             </span>-q<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <cite>–help</cite> option can be used with any command to display detailed information about the command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>sparql<span class="w"> </span>--help
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">child</span><span class="p">,</span><span class="n">mother</span>
+<span class="nl">http</span><span class="p">:</span><span class="c1">//www.inria.fr/2015/humans-instances#Lucas,http://www.inria.fr/2015/humans-instances#Catherine</span>
+<span class="nl">http</span><span class="p">:</span><span class="c1">//www.inria.fr/2015/humans-instances#Catherine,http://www.inria.fr/2015/humans-instances#Laura</span>
 </pre></div>
 </div>
-</div>
-<section id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this heading">#</a></h2>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Command</p></th>
-<th class="head"><p>Summary</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="cli_sparql.html#corese-command-sparql"><span class="std std-ref">sparql</span></a></p></td>
-<td><p>Run a SPARQL query on RDF datasets.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cli_convert.html#corese-command-convert"><span class="std std-ref">convert</span></a></p></td>
-<td><p>Convert RDF dataset from one format to another.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cli_shacl.html#corese-command-shacl"><span class="std std-ref">shacl</span></a></p></td>
-<td><p>Validate RDF dataset against SHACL shapes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cli_remote_sparql.html#corese-command-remote-sparql"><span class="std std-ref">remote-sparql</span></a></p></td>
-<td><p>Execute a SPARQL query on a remote endpoint.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="toctree-wrapper compound">
-</div>
+<p>For more examples, see the <a class="reference external" href="../getting%20started/Getting%20Started%20With%20Corese-command.html#remote-sparql-command">Getting Started Guide</a>.</p>
+<section id="output-accept-formats">
+<span id="corese-command-remote-sparql-output-formats"></span><h2>Output (Accept) formats<a class="headerlink" href="#output-accept-formats" title="Permalink to this heading">#</a></h2>
+<p>Output formats depend on the endpoint implementation and the query form. If the remote endpoint is also powered by Corese then the following formats are supported:</p>
+<p>SELECT, ASK:</p>
+<ul class="simple">
+<li><p>XML: <cite>application/sparql-results+xml</cite></p></li>
+<li><p>Json: <cite>application/sparql-results+json</cite></p></li>
+<li><p>CSV: <cite>text/csv</cite></p></li>
+<li><p>TSV: <cite>text/tab-separated-values</cite></p></li>
+</ul>
+<p>CONSTRUCT, DESCRIBE:</p>
+<ul class="simple">
+<li><p>RDF/XML: <cite>rdfxm`application/rdf+xml</cite></p></li>
+<li><p>Turtle: <cite>text/turtle</cite></p></li>
+<li><p>TriG: <cite>application/trig</cite></p></li>
+<li><p>JSON-LD: <cite>application/ld+json</cite></p></li>
+<li><p>NTRIPLES: <cite>application/n-triples</cite></p></li>
+<li><p>NQUADS: <cite>application/n-quads</cite></p></li>
+</ul>
 </section>
 </section>
 
@@ -507,20 +519,20 @@ corese-command<span class="w"> </span>--help
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../apis.html"
+       href="cli_shacl.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">CORESE APIs</p>
+        <p class="prev-next-title">shacl</p>
       </div>
     </a>
     <a class="right-next"
-       href="cli_sparql.html"
+       href="../rest_api/api_root.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">sparql</p>
+        <p class="prev-next-title">REST API Reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -540,14 +552,14 @@ corese-command<span class="w"> </span>--help
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-accept-formats">Output (Accept) formats</a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/cli_ref/cli_root.rst.txt">
+    <a href="../_sources/cli_ref/cli_remote_sparql.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

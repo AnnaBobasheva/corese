@@ -27,7 +27,6 @@ CORESE APIs
 
       and more...
 
-         In writing ....
 
     .. grid-item-card::  
       :shadow: sm

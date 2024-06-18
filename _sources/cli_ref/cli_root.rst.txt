@@ -3,15 +3,15 @@
 Command Line Interface Reference
 =======================================
 
-This document serves as a reference guide for commands available through the Corese CLI a.k.a. `Corese-Command`. `Corese-Command` provides the built-in Corese engine and a set of commands to interact with it. `Corese-Command` is designed to simplify and streamline tasks related to querying, converting, and validating RDF data, 
+This document is a reference guide for commands available through the Corese CLI a.k.a. `Corese-Command`. `Corese-Command` provides the built-in Corese engine and a set of commands to interact with it. `Corese-Command` is designed to simplify and streamline tasks related to querying, converting, and validating RDF data, 
 
-For the User Guide on how to setup and get started with `Corese-Command`, please refer to its `User Guide <../getting%20started/Getting%20Started%20With%20Corese-command.html>`_.
+For the User Guide on how to set up and get started with `Corese-Command`, please refer to its `User Guide <../getting%20started/Getting%20Started%20With%20Corese-command.html>`_.
 
 .. note::
-    The installation instuctions for non-Java users is not very clear.  
+    The installation instructions for non-Java users are not very clear.  
 
 
-The genral syntax for `Corese-Command` is as follows:
+The general syntax for `Corese-Command` is as follows:
 
 .. code-block:: bash
 
@@ -19,7 +19,7 @@ The genral syntax for `Corese-Command` is as follows:
 
 **Global Options**
 
-Global option cna be used without specifying a command and include:
+Global options can be used without specifying a command and include:
 
 - `-h`, `\-\-help` : Display a list of available commands.
 - `-V`, `\-\-version` : Display version information.
@@ -50,14 +50,17 @@ Commands
      - Convert RDF dataset from one format to another.
    * - :ref:`shacl <corese-command-shacl>`
      - Validate RDF dataset against SHACL shapes.
+   * - :ref:`remote-sparql <corese-command-remote-sparql>`
+     - Execute a SPARQL query on a remote endpoint.
      
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    cli_sparql
    cli_convert
    cli_shacl
-
+   cli_remote_sparql
 
 
 
