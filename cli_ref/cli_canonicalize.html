@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Command Line Interface Reference &#8212; CORESE</title>
+    <title>canonicalize &#8212; CORESE</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'cli_ref/cli_root';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cli_ref/cli_canonicalize';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'http://127.0.0.1:3000/docs/source/_static/switcher.json';
@@ -54,8 +54,8 @@
     <link rel="icon" href="../_static/corese.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="sparql" href="cli_sparql.html" />
-    <link rel="prev" title="CORESE APIs" href="../apis.html" />
+    <link rel="next" title="REST API Reference" href="../rest_api/api_root.html" />
+    <link rel="prev" title="remote-sparql" href="cli_remote_sparql.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -381,12 +381,12 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">CLI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="cli_root.html">CLI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cli_sparql.html">sparql</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_convert.html">convert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_shacl.html">shacl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_remote_sparql.html">remote-sparql</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_canonicalize.html">canonicalize</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">canonicalize</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../rest_api/api_root.html">REST API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -438,7 +438,10 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../apis.html" class="nav-link">CORESE APIs</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Command...</li>
+    
+    <li class="breadcrumb-item"><a href="cli_root.html" class="nav-link">Command Line Interface Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">canonicalize</li>
   </ul>
 </nav>
 </div>
@@ -455,63 +458,57 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="command-line-interface-reference">
-<span id="cli-reference"></span><h1>Command Line Interface Reference<a class="headerlink" href="#command-line-interface-reference" title="Permalink to this heading">#</a></h1>
-<p>This document is a reference guide for commands available through the Corese CLI a.k.a. <cite>Corese-Command</cite>. <cite>Corese-Command</cite> provides the built-in Corese engine and a set of commands to interact with it. <cite>Corese-Command</cite> is designed to simplify and streamline tasks related to querying, converting, and validating RDF data,</p>
-<p>For the User Guide on how to set up and get started with <cite>Corese-Command</cite>, please refer to its <a class="reference external" href="../getting%20started/Getting%20Started%20With%20Corese-command.html">User Guide</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The installation instructions for non-Java users are not very clear.</p>
-</div>
-<p>The general syntax for <cite>Corese-Command</cite> is as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span><span class="o">[</span>GLOBAL_OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span><span class="w"> </span><span class="o">[</span>COMMAND_OPTIONS<span class="w"> </span><span class="o">[</span>ARGUMENT<span class="o">]</span><span class="w"> </span>...<span class="o">]</span>
+  <section id="canonicalize">
+<span id="corese-command-canonicalize"></span><h1>canonicalize<a class="headerlink" href="#canonicalize" title="Permalink to this heading">#</a></h1>
+<p>The <a href="#id1"><span class="problematic" id="id2">``</span></a>canonicalize `` command allows applying a specific canonicalization algorithm to RDF files.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>canonicalize<span class="w"> </span><span class="o">[</span>-hRvw<span class="o">]</span><span class="w"> </span><span class="o">[</span>-i<span class="o">=</span>&lt;inputs&gt;...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-f<span class="o">=</span>&lt;inputFormat&gt;<span class="o">]</span>
+<span class="w">                      </span><span class="o">[</span>-r<span class="o">=</span>&lt;canonicalAlgo&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>-o<span class="o">=</span>&lt;output&gt;<span class="o">]</span>
+<span class="w">                      </span><span class="o">[</span>-c<span class="o">=</span>&lt;configFilePath&gt;<span class="o">]</span>
 </pre></div>
 </div>
-<p><strong>Global Options</strong></p>
-<p>Global options can be used without specifying a command and include:</p>
+<p><strong>Options and arguments:</strong></p>
 <ul class="simple">
-<li><p><cite>-h</cite>, <cite>--help</cite> : Display a list of available commands.</p></li>
-<li><p><cite>-V</cite>, <cite>--version</cite> : Display version information.</p></li>
+<li><p><cite>-i</cite>, <cite>--input-data</cite> <cite>&lt;input file|dir|pattern|URL&gt;</cite> : Optional path to a file, directory, filename pattern, or URL containing the RDF data. Default: standard input.</p></li>
+<li><p><cite>-f</cite>, <cite>-if</cite>, <cite>--input-format</cite> <cite>&lt;format&gt;</cite> : Input format is automatically detected for files. Use this option with the standard input or if you want to force the input file format. Supported input formats are listed <a class="reference internal" href="#corese-command-canonicalize-input-formats"><span class="std std-ref">below</span></a>.</p></li>
+<li><p><cite>-R</cite>, <cite>--recursive</cite>: Recursively input all the files in the input directory and sub-directories.</p></li>
+<li><p><cite>-r</cite>, <cite>-a</cite>, <cite>ca</cite>, <cite>-of</cite>, <cite>--canonical-algo</cite> <cite>&lt;algo&gt;</cite> : Canonicalization algorithm to apply. Supported algorithms/formats are listed <a class="reference internal" href="#corese-command-canonicalize-output-formats"><span class="std std-ref">below</span></a>. Default: <cite>markdown</cite> table.</p></li>
+<li><p><cite>-o</cite>, <cite>--output-data</cite> <cite>&lt;output_file&gt;</cite> : Optional path to save the query results. Default: standard output.</p></li>
+<li><p><cite>-c</cite>,  <cite>--config</cite>, <cite>--init</cite> <cite>&lt;path&gt;</cite> : Optional path to the configuration file. Default: <cite>config.properties</cite> file in the current directory. Is this true??</p></li>
+<li><p><cite>-w</cite>, <cite>--no-owl-import</cite> : Disables the automatic import of referenced ontologies specified in ‘owl:imports’ statements in the <cite>profile.ttl</cite> file. Default: enabled.</p></li>
+<li><p><cite>-v</cite>, <cite>--verbose</cite> : Display verbose output.</p></li>
+<li><p><cite>-h</cite>, <cite>--help</cite>: Display  <cite>sparql</cite> command options.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>-V
-corese-command<span class="w"> </span>--help
+<p><strong>Example:</strong></p>
+<p>To run this example you can download the sample data file <a class="reference download internal" download="" href="../_downloads/5e1c0c0a85123ebddff1ed94b81a07de/beatles.rdf"><code class="xref download docutils literal notranslate"><span class="pre">beatles.rdf</span></code></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>convert<span class="w"> </span>-i<span class="w"> </span>beatles.rdf<span class="w"> </span>-r<span class="w"> </span>tutle
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <cite>–help</cite> option can be used with any command to display detailed information about the command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>sparql<span class="w"> </span>--help
+<div class="highlight-turtle notranslate"><div class="highlight"><pre><span></span>TBD
+
+...
 </pre></div>
 </div>
-</div>
-<section id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this heading">#</a></h2>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Command</p></th>
-<th class="head"><p>Summary</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="cli_sparql.html#corese-command-sparql"><span class="std std-ref">sparql</span></a></p></td>
-<td><p>Run a SPARQL query on RDF datasets.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cli_convert.html#corese-command-convert"><span class="std std-ref">convert</span></a></p></td>
-<td><p>Convert RDF dataset from one format to another.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cli_shacl.html#corese-command-shacl"><span class="std std-ref">shacl</span></a></p></td>
-<td><p>Validate RDF dataset against SHACL shapes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cli_remote_sparql.html#corese-command-remote-sparql"><span class="std std-ref">remote-sparql</span></a></p></td>
-<td><p>Execute a SPARQL query on a remote endpoint.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cli_canonicalize.html#corese-command-canonicalize"><span class="std std-ref">remote-sparql</span></a></p></td>
-<td><p>Applying a specific canonicalization algorithm to RDF dataset.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="toctree-wrapper compound">
-</div>
+<p>For more examples, see the <a class="reference external" href="../getting%20started/Getting%20Started%20With%20Corese-command.html#7-canonicalize-command">Getting Started Guide</a>.</p>
+<section id="input-formats">
+<span id="corese-command-canonicalize-input-formats"></span><h2>Input formats<a class="headerlink" href="#input-formats" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>RDF/XML: <cite>rdfxml</cite>, <cite>rdf</cite> or <cite>application/rdf+xml</cite></p></li>
+<li><p>Turtle: <cite>turtle</cite>, <cite>ttl</cite> or <cite>text/turtle</cite></p></li>
+<li><p>TriG: <cite>trig</cite> or <cite>application/trig</cite></p></li>
+<li><p>JSON-LD: <cite>jsonld</cite> or <cite>application/ld+json</cite></p></li>
+<li><p>NTRIPLES: <cite>ntriples</cite>, <cite>nt</cite> or <cite>application/n-triples</cite></p></li>
+<li><p>NQUADS: <cite>nquads</cite>, <cite>nq</cite>, or <cite>application/n-quads</cite></p></li>
+<li><p>RDFa/HTML: <cite>rdfa</cite>, <cite>html</cite>, <cite>application/xhtml+xml</cite></p></li>
+</ul>
+</section>
+<section id="output-canonicalization-algorithms-formats">
+<span id="corese-command-canonicalize-output-formats"></span><h2>Output (Canonicalization Algorithms) formats<a class="headerlink" href="#output-canonicalization-algorithms-formats" title="Permalink to this heading">#</a></h2>
+<p>The following canonicalization algorithms are available under the <a class="reference external" href="https://www.w3.org/TR/rdf-canon/">RDFC 1.0</a> specification:</p>
+<ul class="simple">
+<li><p>RDFC 1.0 with SHA-256: <cite>rdfc-1.0</cite>, <cite>rdfc-1.0-sha256</cite></p></li>
+<li><p>RDFC 1.0 with SHA-384: <cite>rdfc-1.0-sha384</cite></p></li>
+</ul>
 </section>
 </section>
 
@@ -526,20 +523,20 @@ corese-command<span class="w"> </span>--help
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../apis.html"
+       href="cli_remote_sparql.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">CORESE APIs</p>
+        <p class="prev-next-title">remote-sparql</p>
       </div>
     </a>
     <a class="right-next"
-       href="cli_sparql.html"
+       href="../rest_api/api_root.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">sparql</p>
+        <p class="prev-next-title">REST API Reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -559,14 +556,15 @@ corese-command<span class="w"> </span>--help
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-formats">Input formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-canonicalization-algorithms-formats">Output (Canonicalization Algorithms) formats</a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/cli_ref/cli_root.rst.txt">
+    <a href="../_sources/cli_ref/cli_canonicalize.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
