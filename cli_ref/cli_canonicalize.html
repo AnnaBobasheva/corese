@@ -460,7 +460,7 @@ document.write(`
                   
   <section id="canonicalize">
 <span id="corese-command-canonicalize"></span><h1>canonicalize<a class="headerlink" href="#canonicalize" title="Permalink to this heading">#</a></h1>
-<p>The <a href="#id1"><span class="problematic" id="id2">``</span></a>canonicalize `` command allows applying a specific canonicalization algorithm to RDF files.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">canonicalize</span></code> command allows applying a specific canonicalization algorithm to RDF files.</p>
 <p><strong>Usage:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>canonicalize<span class="w"> </span><span class="o">[</span>-hRvw<span class="o">]</span><span class="w"> </span><span class="o">[</span>-i<span class="o">=</span>&lt;inputs&gt;...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-f<span class="o">=</span>&lt;inputFormat&gt;<span class="o">]</span>
 <span class="w">                      </span><span class="o">[</span>-r<span class="o">=</span>&lt;canonicalAlgo&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>-o<span class="o">=</span>&lt;output&gt;<span class="o">]</span>
@@ -481,7 +481,7 @@ document.write(`
 </ul>
 <p><strong>Example:</strong></p>
 <p>To run this example you can download the sample data file <a class="reference download internal" download="" href="../_downloads/5e1c0c0a85123ebddff1ed94b81a07de/beatles.rdf"><code class="xref download docutils literal notranslate"><span class="pre">beatles.rdf</span></code></a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>convert<span class="w"> </span>-i<span class="w"> </span>beatles.rdf<span class="w"> </span>-r<span class="w"> </span>tutle
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>corese-command<span class="w"> </span>canonicalize<span class="w"> </span>-i<span class="w"> </span>beatles.rdf<span class="w"> </span>-r<span class="w"> </span>rdfc-1.0-sha256
 </pre></div>
 </div>
 <div class="highlight-turtle notranslate"><div class="highlight"><pre><span></span>TBD

@@ -515,16 +515,57 @@ The supported query forms are SELECT, ASK, CONSTRUCT, DESCRIBE or update (DELETE
 <li><p><cite>param</cite>: Optional parameter in format: param=key~val.</p></li>
 </ul>
 </div>
+<p id="endpoint-sparql-select">There are three ways to send a SPARQL query to a Corese endpoint:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Send a query as a URL-encoded query string in the <cite>query</cite> parameter</dt><dd><p>The query string must be passed in the URL as <cite>query=…</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Send a query as a URL-encoded POST request.</dt><dd><p>The <cite>Content-Type</cite> header must be set to <cite>application/x-www-form-urlencoded</cite>.
+The query string must be passed in the POST request body as <cite>query=…</cite></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Send a query directly in the POST request body.</dt><dd><p>The <cite>Content-Type</cite> header must be set to <cite>application/sparql-query</cite>.
+The query string must be passed in the POST request body.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>All other parameters can be passed in the URL as query string parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The direct POST query only works with <cite>Accept:application/sparql-results+xml</cite> and  <cite>Accept:application/sparql-results+json</cite> headers .</p>
+</div>
 <p><strong>SELECT Request Example:</strong></p>
+<p>This example demonstrates three way to run the same query on the remote SPARQL endpoint  <a class="reference external" href="https://corese.inria.fr/sparql">https://corese.inria.fr/sparql</a>.</p>
+<p>The query is to find all the children who have a mother in the <cite>Humans</cite> dataset .</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
-HTTP POST</label><div class="sd-tab-content docutils">
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">sparql</span><span class="w"> </span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<span class="nl">Host</span><span class="p">:</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//corese.inria.fr</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
-<span class="nl">Accept</span><span class="p">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">sparql</span><span class="o">-</span><span class="n">results</span><span class="o">+</span><span class="n">json</span>
-<span class="n">query</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  SELECT * WHERE { ?child humans:hasMother ?mother. }&quot;</span>
+HTTP</label><div class="sd-tab-content docutils">
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>GET /sparql?query=PREFIX%20%20humans%3A%20%3Chttp%3A%2F%2Fwww.inria.fr%2F2015%2Fhumans%23%3E%20%20SELECT%20%2A%20WHERE%20%7B%20%3Fchild%20humans%3AhasMother%20%3Fmother.%20%7D HTTP/1.1
+Host: https://corese.inria.fr
+Accept: application/sparql-results+json
+
+&lt;!--URL-encoded POST--&gt;
+POST /sparql HTTP/1.1
+Host: https://corese.inria.fr
+Content-Type: application/x-www-form-urlencoded
+Accept: application/sparql-results+json
+query= &quot;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  SELECT * WHERE { ?child humans:hasMother ?mother. }&quot;
+
+&lt;!--POST directly--&gt;
+POST /sparql HTTP/1.1
+Host: https://corese.inria.fr
+Content-Type: application/sparql-query
+Accept: application/sparql-results+json
+
+PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;
+SELECT * WHERE { ?child humans:hasMother ?mother. }
 </pre></div>
 </div>
 </div>
@@ -534,22 +575,26 @@ curl</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;</span>
 <span class="s1">       SELECT * WHERE { ?child humans:hasMother ?mother. }&#39;</span>
 
-curl<span class="w"> </span>-<span class="w"> </span>X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>--url<span class="w"> </span>https://corese.inria.fr/sparql
-<span class="w">     </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/sparql-results+json&quot;</span>
-<span class="w">     </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span>
+curl<span class="w"> </span>-G<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/sparql-results+json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--data-urlencode<span class="w"> </span><span class="s2">&quot;query=</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
+
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/sparql-results+json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--data<span class="w"> </span><span class="s2">&quot;query=</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
 
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/sparql-results+json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/sparql-query&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/sparql-results+json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--data<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>SELECT Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;head&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;vars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;child&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mother&quot;</span><span class="p">]</span>
@@ -574,7 +619,7 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-2">
 HTTP GET</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET /sparql?query=PREFIX%20%20humans%3A%20%3Chttp%3A%2F%2Fwww.inria.fr%2F2015%2Fhumans%23%3E%20%20ASK%20%7B%20%3Fchild%20humans%3AhasMother%20%3Fmother.%20%7D&#39; HTTP/1.1
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>GET /sparql?query=PREFIX%20%20humans%3A%20%3Chttp%3A%2F%2Fwww.inria.fr%2F2015%2Fhumans%23%3E%20%20ASK%20%7B%20%3Fchild%20humans%3AhasMother%20%3Fmother.%20%7D&#39; HTTP/1.1
 Host: https://corese.inria.fr
 Accept: application/sparql-results+json
 </pre></div>
@@ -583,16 +628,17 @@ Accept: application/sparql-results+json
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-3">
 curl</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># QUERY=&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  ASK { ?child humans:hasMother ?mother. }&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ASK</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;</span>
+<span class="s1">     ASK { ?child humans:hasMother ?mother. }&#39;</span>
 
-curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="se">\</span>
---url<span class="w"> </span><span class="s1">&#39;https://corese.inria.fr/sparql?query=PREFIX%20%20humans%3A%20%3Chttp%3A%2F%2Fwww.inria.fr%2F2015%2Fhumans%23%3E%20%20ASK%20%7B%20%3Fchild%20humans%3AhasMother%20%3Fmother.%20%7D&#39;</span><span class="w"> </span><span class="se">\</span>
---header<span class="w"> </span><span class="s1">&#39;Accept: application/sparql-results+json&#39;</span>
+curl<span class="w"> </span>-G<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/sparql-results+json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--data-urlencode<span class="w"> </span><span class="s2">&quot;query=</span><span class="nv">$ASK</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>ASK Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;head&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">,</span>
 
@@ -620,30 +666,47 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <li><p><cite>application/ld+json</cite></p></li>
 <li><p><cite>application/rdf+xml</cite></p></li>
 <li><p><cite>application/turtle</cite></p></li>
+<li><p><cite>application/trig</cite></p></li>
+<li><p><cite>application/n-triples</cite></p></li>
+<li><p><cite>application/n-quads</cite></p></li>
 <li><p><cite>text/nt</cite></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
+<p>There are also three ways to send these types of queries as described in the <a class="reference internal" href="#endpoint-sparql-select"><span class="std std-ref">SELECT or ASK</span></a> section.</p>
 <p><strong>CONSTRUCT Request Example:</strong></p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-4">
 HTTP POST</label><div class="sd-tab-content docutils">
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">sparql</span><span class="w"> </span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
-<span class="nl">Accept</span><span class="p">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">turtle</span>
-<span class="nl">Host</span><span class="p">:</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//corese.inria.fr</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;!--URL-encoded POST--&gt;
+POST /sparql HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Accept: application/turtle
+Host: https://corese.inria.fr
 
-<span class="n">query</span><span class="o">=</span><span class="s">&quot;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  CONSTRUCT { ?mother humans:hasChild ?child. } WHERE { ?child humans:hasMother ?mother. }&quot;</span>
+query=&quot;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  CONSTRUCT { ?mother humans:hasChild ?child. } WHERE { ?child humans:hasMother ?mother. }&quot;
+
+&lt;!--direct POST--&gt;
+POST /sparql HTTP/1.1
+Content-Type: application/sparql-query
+Accept: application/turtle
+Host: https://corese.inria.fr
+
+PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;
+CONSTRUCT { ?mother humans:hasChild ?child. }
+WHERE { ?child humans:hasMother ?mother. }
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-5">
 curl</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  CONSTRUCT { ?mother humans:hasChild ?child. } WHERE { ?child humans:hasMother ?mother. }&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;</span>
+<span class="s1">       CONSTRUCT { ?mother humans:hasChild ?child. }</span>
+<span class="s1">       WHERE { ?child humans:hasMother ?mother. }&#39;</span>
 
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
 --url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
@@ -660,7 +723,6 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 </div>
 </div>
 </div>
-<p><strong>CONSTRUCT Response Example:</strong></p>
 <div class="highlight-turtle notranslate"><div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">ns1:</span><span class="w"> </span><span class="nv">&lt;http://www.inria.fr/2015/humans-instances#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">humans:</span><span class="w"> </span><span class="nv">&lt;http://www.inria.fr/2015/humans#&gt;</span><span class="w"> </span><span class="p">.</span>
 
@@ -683,15 +745,17 @@ Host: https://corese.inria.fr
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-7">
 curl</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;  DESCRIBE &lt;http://www.inria.fr/2015/humans-instances#Catherine&gt;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX  humans: &lt;http://www.inria.fr/2015/humans#&gt;</span>
+<span class="s1">       DESCRIBE &lt;http://www.inria.fr/2015/humans-instances#Catherine&gt;&#39;</span>
 
-curl<span class="w"> </span>--url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="s2">&quot;query=</span><span class="nv">$QUERY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">                                    </span>--header<span class="w"> </span><span class="s2">&quot;Accept: application/turtle&quot;</span>
+curl<span class="w"> </span>-G<span class="w"> </span><span class="se">\</span>
+--url<span class="w"> </span>https://corese.inria.fr/sparql<span class="w"> </span><span class="se">\</span>
+--header<span class="w"> </span><span class="s2">&quot;Accept: application/turtle&quot;</span><span class="w"> </span><span class="se">\</span>
+--data-urlencode<span class="w"> </span><span class="s2">&quot;query=</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>DESCRIBE Response Example:</strong></p>
 <div class="highlight-turtle notranslate"><div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">ns1:</span><span class="w"> </span><span class="nv">&lt;http://www.inria.fr/2015/humans-instances#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">humans:</span><span class="w"> </span><span class="nv">&lt;http://www.inria.fr/2015/humans#&gt;</span><span class="w"> </span><span class="p">.</span>
 
@@ -759,16 +823,40 @@ curl<span class="w"> </span>--url<span class="w"> </span>https://corese.inria.fr
 <p>The update query returns no body and <cite>Length=0</cite> if the <cite>Content-Type:application/sparql-update</cite> and if the update operation is successful.</p>
 <p>If the update operation fails, the response status code is 500 and the response body contains an error message.</p>
 </div>
+<p>There are two ways to send the update query to a Corese endpoint:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Send an update query as a URL-encoded POST request.</dt><dd><p>The <cite>Content-Type</cite> header must be set to <cite>application/x-www-form-urlencoded</cite>.
+The update string must be passed in the POST request body as <cite>update=…</cite></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Send an update query directly in the POST request body.</dt><dd><p>The <cite>Content-Type</cite> header must be set to <cite>application/sparql-query</cite>.
+The update string must be passed in the POST request body.</p>
+</dd>
+</dl>
+</li>
+</ul>
 <p><strong>INSERT Request Example:</strong></p>
 <p>To execute this example we recommend launching the <a class="reference external" href="../docker/README.html">Corese Docker</a> container.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-8">
 HTTP</label><div class="sd-tab-content docutils">
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">sparql</span>
-<span class="nl">Host</span><span class="p">:</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//localhost:8080</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">sparql</span><span class="o">-</span><span class="n">update</span>
-<span class="n">update</span><span class="o">=</span><span class="s">&quot;PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt; INSERT DATA { &lt;http://example/book1&gt; dc:title &quot;</span><span class="n">A</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">book</span><span class="s">&quot; .}&quot;&quot;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;!--URL-encoded POST--&gt;
+POST /sparql
+Host: https://localhost:8080
+Content-Type: `application/x-www-form-urlencoded`
+update=&#39;PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt; INSERT DATA { &lt;http://example/book1&gt; dc:title &quot;A new book&quot; .}&#39;
+
+&lt;!--direct POST--&gt;
+POST /sparql
+Host: https://localhost:8080
+Content-Type: application/sparql-update
+
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+INSERT DATA { &lt;http://example/book1&gt; dc:title &quot;A new book&quot; .}
 </pre></div>
 </div>
 </div>
@@ -776,17 +864,21 @@ HTTP</label><div class="sd-tab-content docutils">
 </input><label class="sd-tab-label" for="sd-tab-item-9">
 curl</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">QUERY</span><span class="o">=</span><span class="s1">&#39;PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;</span>
-<span class="s1">       INSERT DATA { &lt;http://example/book1&gt; dc:title &quot;A new book&quot; . }&#39;</span>
+<span class="s1">       INSERT DATA { &lt;http://example/book1&gt; dc:title &quot;A newer book&quot; . }&#39;</span>
+
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+--url<span class="w"> </span>http://localhost:8080/sparql<span class="w"> </span><span class="se">\</span>
+--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span><span class="w"> </span><span class="se">\</span>
+--data<span class="w"> </span><span class="s2">&quot;update=</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
 
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
 --url<span class="w"> </span>http://localhost:8080/sparql<span class="w"> </span><span class="se">\</span>
 --header<span class="w"> </span><span class="s2">&quot;Content-Type: application/sparql-update&quot;</span><span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
+--data<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$QUERY</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>INSERT Response Example:</strong></p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
 <span class="nt">&lt;sparql</span>
 <span class="w">    </span><span class="na">xmlns=</span><span class="s">&#39;http://www.w3.org/2005/sparql-results#&#39;</span><span class="nt">&gt;</span>

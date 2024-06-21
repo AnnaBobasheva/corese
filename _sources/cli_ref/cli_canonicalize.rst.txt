@@ -4,7 +4,7 @@ canonicalize
 ============
 
 
-The ``canonicalize `` command allows applying a specific canonicalization algorithm to RDF files.
+The ``canonicalize`` command allows applying a specific canonicalization algorithm to RDF files.
 
 **Usage:**
 
@@ -38,7 +38,7 @@ To run this example you can download the sample data file :download:`beatles.rdf
 
 .. code-block:: bash
 
-    corese-command convert -i beatles.rdf -r tutle 
+    corese-command canonicalize -i beatles.rdf -r rdfc-1.0-sha256 
 
 
 .. code-block:: turtle
